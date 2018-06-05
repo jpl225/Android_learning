@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mnPuhelin"
+        android:title="Puhelin"/>
+    <item android:id="@+id/mnKenka"
+    android:title="Kenkä"/>
+    <item android:id="@+id/mnKenkapuhelin"
+        android:title="Kenkäpuhelin"/>
+</menu>
