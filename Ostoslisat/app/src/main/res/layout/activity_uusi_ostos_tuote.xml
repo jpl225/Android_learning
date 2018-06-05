@@ -9,6 +9,11 @@
     android:paddingRight="16dp"
     android:orientation="vertical" >
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/valikko"
+        android:layout_height = "?attr/actionBarSize"
+        android:layout_width = "match_parent"/>
+
     <WebView
         android:id="@+id/verkkonakyma"
         android:layout_width="match_parent"
