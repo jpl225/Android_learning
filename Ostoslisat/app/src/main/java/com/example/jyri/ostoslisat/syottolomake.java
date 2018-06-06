@@ -4,15 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.webkit.WebView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
-public class UusiOstosTuote extends AppCompatActivity {
+public class syottolomake extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -26,14 +28,14 @@ public class UusiOstosTuote extends AppCompatActivity {
                 // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
                 Log.d("HUOM!", "Options menussa valittu Ostoslista");
                 // LUODAAN INTENT-OLIO
-                Intent siirryPaasivulle = new Intent (UusiOstosTuote.this, MainActivity.class);
+                Intent siirryPaasivulle = new Intent (syottolomake.this, MainActivity.class);
                 // KÄYNNISTETÄN SIIRTYMINEN
                 startActivity(siirryPaasivulle);
                 return true;
             case R.id.mnLisaaTuote:
                 naytaToast("Tuotteen lisäystä painettu");
                 // LUODAAN INTENT-OLIO
-                Intent siirrySyottosivulle = new Intent (UusiOstosTuote.this, syottolomake.class);
+                Intent siirrySyottosivulle = new Intent (syottolomake.this, syottolomake.class);
                 // KÄYNNISTETÄN SIIRTYMINEN
                 startActivity(siirrySyottosivulle);
                 return true;
@@ -41,7 +43,7 @@ public class UusiOstosTuote extends AppCompatActivity {
                 // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
                 Log.d("HUOM!", "Options menussa valittu Ohjeet");
                 // LUODAAN INTENT-OLIO
-                Intent siirryInfosivulle = new Intent (UusiOstosTuote.this, UusiOstosTuote.class);
+                Intent siirryInfosivulle = new Intent (syottolomake.this, UusiOstosTuote.class);
                 // KÄYNNISTETÄN SIIRTYMINEN
                 startActivity(siirryInfosivulle);
                 return true;
@@ -51,33 +53,43 @@ public class UusiOstosTuote extends AppCompatActivity {
 
     }
 
-    // NOTIFIKAATIO TOAST, TOAST ON POPUPIKKUNA, JOKA NÄKYY NOIN SEKUNNIN AJAN
-
     // APUMETODI
     public void naytaToast(String teksti){
         int aika = Toast.LENGTH_LONG;
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, teksti, aika);
         toast.show();
-
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uusi_ostos_tuote);
+        setContentView(R.layout.activity_syottolomake);
 
         // LUODAAN VALIKKO
         Toolbar minunValikko = (Toolbar)findViewById(R.id.valikko);
         setSupportActionBar(minunValikko);
 
-        // LUODAAN VERKKONÄKYMÄOLIO
-            WebView verkko;
+        // LUO BUTTTON
+        Button painike;
 
-        // LUODAAN VIITTAUS OLIOON XML-TIEDOSTOSTA
-            verkko = (WebView)findViewById(R.id.verkkonakyma);
+        // HAE VIITTAUS XML-TIEDOSTON BUTTONIIN R:N KAUTTA
+        painike = (Button)findViewById(R.id.btLisaa);
 
-        // HTML-TIEDOSTON LATAAMINEN OLIOON
-            verkko.loadUrl("file:///android_asset/ohjeet.html");
+        // HAE VIITTAUS XML-TIEDOSTON EDITTEXT KENTTÄÄN R:N KAUTTA
+        final EditText haettuNimi = (EditText)findViewById(R.id.etNimi);
+
+        // ASETETAAN TAPAHTUMAKUUNTELIJA NÄPPÄIMEEN
+        painike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // LUETAAN EDITTEXTIIN KÄYTTÄJÄN KIRJOITTAJA TEKSTI-STRING MUUTTUJAAN
+                    String nimi = haettuNimi.getText().toString();
+                // HEITETÄÄN TOAST, JOSSA KÄYTTÄJÄN KIRJOITTAMA NIMI
+                naytaToast(nimi);
+            }
+        });
+
+
     }
 }

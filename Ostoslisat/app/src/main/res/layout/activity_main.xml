@@ -6,10 +6,15 @@
     android:paddingRight="16dp"
     android:orientation="vertical" >
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/valikko"
+        android:layout_height = "?attr/actionBarSize"
+        android:layout_width = "match_parent"/>
+
     <Button
         android:id="@+id/painike"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Webbiins" />
+        android:text="Webbiin" />
 </LinearLayout>

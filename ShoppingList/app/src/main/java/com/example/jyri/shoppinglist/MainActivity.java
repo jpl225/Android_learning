@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean onOptionsItemsSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.mnKenka:
                 // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
