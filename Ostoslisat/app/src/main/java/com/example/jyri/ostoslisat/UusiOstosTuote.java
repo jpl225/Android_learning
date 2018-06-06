@@ -19,7 +19,7 @@ public class UusiOstosTuote extends AppCompatActivity {
         return true;
     }
 
-    public boolean onOptionsItemsSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.mnOstosLista:
                 // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
