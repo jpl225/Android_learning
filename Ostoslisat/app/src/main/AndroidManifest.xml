@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".UusiOstosTuote" />
-        <activity android:name=".syottolomake"></activity>
+        <activity android:name=".syottolomake" />
+        <activity android:name=".NimiLista"></activity>
     </application>
 
 </manifest>

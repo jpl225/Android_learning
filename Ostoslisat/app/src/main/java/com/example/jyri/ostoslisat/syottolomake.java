@@ -86,7 +86,11 @@ public class syottolomake extends AppCompatActivity {
                 // LUETAAN EDITTEXTIIN KÄYTTÄJÄN KIRJOITTAJA TEKSTI-STRING MUUTTUJAAN
                     String nimi = haettuNimi.getText().toString();
                 // HEITETÄÄN TOAST, JOSSA KÄYTTÄJÄN KIRJOITTAMA NIMI
-                naytaToast(nimi);
+                //naytaToast(nimi);
+                NimiLista.shoppings.add(nimi);
+                // SIIRRYTÄÄN LISTAN NÄYTTÖÖN
+                Intent NimiListaan = new Intent (syottolomake.this, NimiLista.class);
+                startActivity(NimiListaan);
             }
         });
 
