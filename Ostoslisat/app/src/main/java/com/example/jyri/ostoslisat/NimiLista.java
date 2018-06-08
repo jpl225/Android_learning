@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class NimiLista extends AppCompatActivity {
+    public static int firstTime = 1;
 
     // Menu
 
@@ -87,7 +88,10 @@ public class NimiLista extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nimi_lista);
-        lataaSharedPreferences();
+        if (firstTime == 1) {
+            lataaSharedPreferences();
+            firstTime = 0;
+        }
 
         // LUODAAN VALIKKO
         Toolbar minunValikko = (Toolbar)findViewById(R.id.valikko);
@@ -101,7 +105,7 @@ public class NimiLista extends AppCompatActivity {
             //ADAPTERIN KÄYTTÖ KYTKETTÄESSÄ ARRAYLIST NÄYTÖN LIST LISTAAN
             adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, shoppings.toArray(new String[1]));
             nimiLista.setAdapter(adapter);
-
+            tallennaSharedPreferences();
         }
 
     }
@@ -120,7 +124,7 @@ public class NimiLista extends AppCompatActivity {
         SharedPreferences omaSharedPreferences = getPreferences(Context.MODE_PRIVATE);
         String ostoksetString = "";
         for(int i = 0; i < shoppings.size(); i++) {
-            ostoksetString w+= shoppings.get(i) + "|";
+            ostoksetString += shoppings.get(i) + "|";
         }
         SharedPreferences.Editor editor = omaSharedPreferences.edit();
         editor.putString("ostokset", ostoksetString);
