@@ -37,6 +37,14 @@ public class UusiOstosTuote extends AppCompatActivity {
                 // KÄYNNISTETÄN SIIRTYMINEN
                 startActivity(siirrySyottosivulle);
                 return true;
+            case R.id.mnLista:
+                // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
+                Log.d("HUOM!", "Options menussa valittu Lista");
+                // LUODAAN INTENT-OLIO
+                Intent siirryListasivulle = new Intent (UusiOstosTuote.this, NimiLista.class);
+                // KÄYNNISTETÄN SIIRTYMINEN
+                startActivity(siirryListasivulle);
+                return true;
             case R.id.mnOhjeet:
                 // TULOSTETAAN LOKIIN (LOGCAT) TESTI, NÄHDÄÄN REAGOIKO OHJELMA
                 Log.d("HUOM!", "Options menussa valittu Ohjeet");

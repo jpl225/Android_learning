@@ -6,9 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".NimiLista">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/valikko"
+        android:layout_height = "?attr/actionBarSize"
+        android:layout_width = "match_parent"/>
+
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/nimiLista"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="517dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -4,6 +4,8 @@
         android:title="Etusivulle"/>
     <item android:id="@+id/mnLisaaTuote"
         android:title="Lisaa tuote"/>
+    <item android:id="@+id/mnLista"
+        android:title="Tuotelista"/>
     <item android:id="@+id/mnOhjeet"
-        android:title="Ohjeet"/>
+    android:title="Ohjeet"/>
 </menu>
